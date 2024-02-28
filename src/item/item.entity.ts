@@ -8,6 +8,7 @@ export class Item extends BaseEntity {
   @Column({
     type: 'varchar',
     length: 20,
+    nullable: false
   })
   name: string;
 
@@ -15,21 +16,20 @@ export class Item extends BaseEntity {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable:false
   })
   price: number;
 
   @Column({
-    type: 'varchar',
     length: 1000,
+    nullable: false
   })
   description: string;
 
-  @Column()
-  image: File;
+  @Column({ nullable: false })
+  image: string;
 
-  @Column({
-    type: 'varchar',
-  })
+  @Column({ nullable: false })
   type: string;
 
 }

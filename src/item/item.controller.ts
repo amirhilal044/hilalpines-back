@@ -30,10 +30,9 @@ export class ProductsController {
   }
 
   @Post()
-  async createProduct(
-    @Body() createProductDto: CreateItem,
-  ): Promise<Item> {
-    return await this.itemService.createProduct(createProductDto);
+  async createProduct(@Body() createItemDto: CreateItem): Promise<Item> {
+    console.log(createItemDto)
+    return await this.itemService.createProduct(createItemDto);
   }
 
   @Put(':id')

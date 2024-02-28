@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, MaxLength, IsOptional, IsNumber, IsDecimal, IsIn } from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength, IsNumber, IsDecimal, IsIn } from 'class-validator';
 
 export class CreateItem {
   @IsNotEmpty()
@@ -17,10 +17,11 @@ export class CreateItem {
   description: string;
 
   @IsNotEmpty()
-  image: File;
+  @IsString()
+  image: string;
 
   @IsNotEmpty()
   @IsString()
-  @IsIn(['trainer', 'client'], { message: 'Type must be either "trainer" or "client"' })
+  @IsIn(['offer', 'product'], { message: 'Type must be either "trainer" or "client"' })
   type: string;
 }

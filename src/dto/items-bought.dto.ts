@@ -18,7 +18,7 @@ export class ItemsBoughtDto {
 
   @IsNotEmpty()
   @IsString()
-  image_link: string;
+  image: string;
 
   @IsNotEmpty()
   @IsString()
