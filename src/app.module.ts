@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
-import { ProductsModule } from './item/item.module';
+import { ItemsModule } from './item/item.module';
 import { OrderModule } from './order/order.module';
+import { ItemsTypeModule } from './items-type/items-type.module';
 
 @Module({
-  imports: [ProductsModule, TypeOrmModule.forRoot(typeOrmConfig), OrderModule],
+  imports: [ItemsModule, TypeOrmModule.forRoot(typeOrmConfig), OrderModule, ItemsTypeModule],
   controllers: [],
   providers: [],
 })

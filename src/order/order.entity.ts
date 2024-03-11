@@ -1,32 +1,23 @@
-import { ItemsBoughtDto } from 'src/dto/items-bought.dto';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('orders')
+@Entity('order')
 export class Order extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  date: Date;
-
-  @Column()
-  clientName: string;
-
-  @Column()
-  address: string;
-
-  @Column()
-  phoneNumber: number;
+  @Column({
+    nullable:false
+  })
+  items: string;
 
   @Column({
-    type: 'varchar',
-    length: 1000,
+    nullable: false
   })
-  additionalInfo: string;
+  ordreInfo: string;
 
-  @Column()
-  itemsBought: ItemsBoughtDto[];
 
-  @Column()
-  totalPrice: number;
+  @Column({
+    nullable: false
+  })
+  date: string;
 }

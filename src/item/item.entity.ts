@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ItemsType } from "src/items-type/items-type.entity";
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('item')
 export class Item extends BaseEntity {
@@ -29,7 +30,9 @@ export class Item extends BaseEntity {
   @Column({ nullable: false })
   image: string;
 
-  @Column({ nullable: false })
-  type: string;
-
+  @ManyToOne(() => ItemsType, itemType => itemType.items, {
+    nullable: false,
+    eager: true // Load the itemsType eagerly when fetching items
+  })
+  type: ItemsType; // Define the relationship with ItemType entity
 }

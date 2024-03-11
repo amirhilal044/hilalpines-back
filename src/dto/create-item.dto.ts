@@ -1,4 +1,12 @@
-import { IsNotEmpty, IsString, MaxLength, IsNumber, IsDecimal, IsIn } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  MaxLength,
+  IsNumber,
+  IsDecimal,
+  IsIn,
+} from 'class-validator';
+import { IsItemTypeExists } from './is-item-type-exists.validator';
 
 export class CreateItem {
   @IsNotEmpty()
@@ -21,7 +29,6 @@ export class CreateItem {
   image: string;
 
   @IsNotEmpty()
-  @IsString()
-  @IsIn(['offer', 'product'], { message: 'Type must be either "trainer" or "client"' })
+  @IsItemTypeExists()
   type: string;
 }
